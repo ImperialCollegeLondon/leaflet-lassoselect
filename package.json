@@ -1,0 +1,19 @@
+{
+  "name": "leaflet-lassoselect",
+  "version": "1.0.0",
+  "description": "A lasso selection plug-in for Leaflet.js maps",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImperialCollegeLondon/leaflet-lassoselect.git"
+  },
+  "author": "The Centre for Genomic Pathogen Surveillance (CGPS)",
+  "license": " BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/ImperialCollegeLondon/leaflet-lassoselect/issues"
+  },
+  "homepage": "https://github.com/ImperialCollegeLondon/leaflet-lassoselect#readme"
+}
