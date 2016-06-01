@@ -145,9 +145,7 @@ L.LassoSelect = L.Class.extend({
     }).addTo(this.map);
 
     if (this.markers.length === 0) {
-      marker.on('click', function() {
-        this.completePath();
-      }.bind(this));
+      marker.on('click', this.completePath.bind(this));
     }
 
     marker.on('dragend', this.fire.bind(this, 'pathchange'));
@@ -174,6 +172,9 @@ L.LassoSelect = L.Class.extend({
   completePath: function() {
     // do nothing if the path has been completed
     if (this.isFinished) return;
+
+    // can only complete the path after 3 points have been selected
+    if (this.markers.length < 3) return;
 
     // complete the path by adding the fisrt point, then mark it as finished
     this.polyline.addLatLng(this.markers[0].getLatLng());
