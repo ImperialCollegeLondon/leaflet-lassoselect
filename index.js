@@ -6,6 +6,7 @@ L.LassoSelect = L.Class.extend({
     startedTooltip: 'Click on the map to draw an edge.',
     readyTooltip: 'Continue placing points or click on the first point to finish shape.',
     finishedTooltip: '',
+    polyline: {},
   },
 
   initialize: function(options) {
@@ -132,7 +133,7 @@ L.LassoSelect = L.Class.extend({
 
   addPointToPath: function(latlng) {
     if (!this.isStarted) {
-      this.polyline = L.polyline([]).addTo(this.map);
+      this.polyline = L.polyline([], this.options.polyline).addTo(this.map);
       this.markers = [];
       this.isStarted= true;
     }
