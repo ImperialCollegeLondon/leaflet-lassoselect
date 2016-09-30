@@ -7,6 +7,7 @@ L.LassoSelect = L.Class.extend({
     readyTooltip: 'Continue placing points or click on the first point to finish shape.',
     finishedTooltip: '',
     polyline: {},
+    initialPath: null,
   },
 
   initialize: function(options) {
@@ -18,6 +19,11 @@ L.LassoSelect = L.Class.extend({
     this.map.on('click', this.onMapClick, this);
     this.disable();
     this.fire('create');
+    if (this.options.initialPath) {
+      for (var i = 0; i < this.options.initialPath.length; i++) {
+        this.addPointToPath(this.options.initialPath[i]);
+      }
+    }
     return this;
   },
 
