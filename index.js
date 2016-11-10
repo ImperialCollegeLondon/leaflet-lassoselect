@@ -16,7 +16,7 @@ L.LassoSelect = L.Class.extend({
 
   addTo: function(map) {
     this.map = map;
-    this.map.on('click', this.onMapClick, this);
+    this.map.on('mousedown', this.onMapClick, this);
     this.disable();
     this.fire('create');
     if (this.options.initialPath) {
@@ -28,7 +28,7 @@ L.LassoSelect = L.Class.extend({
   },
 
   remove: function() {
-    this.map.off('click', this._onMapClick, this);
+    this.map.off('mousedown', this.onMapClick, this);
     this.map = null;
     this.fire('remove');
   },
