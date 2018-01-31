@@ -1,5 +1,4 @@
-L.LassoSelect = L.Class.extend({
-  includes: L.Mixin.Events,
+L.LassoSelect = L.Evented.extend({
 
   options: {
     activeTooltip: 'Click and release to place your first point.',
