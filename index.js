@@ -169,7 +169,9 @@ L.LassoSelect = L.Evented.extend({
     }
 
     // complete the path by adding the first position
-    path.push(this.markers[0].getLatLng());
+    if (this.isFinished) {
+      path.push(this.markers[0].getLatLng());
+    }
 
     // update polyline path
     this.polyline.setLatLngs(path);
