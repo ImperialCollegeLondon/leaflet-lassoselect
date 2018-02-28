@@ -6,7 +6,6 @@ L.LassoSelect = L.Evented.extend({
     readyTooltip: 'Continue placing points or click on the first point to finish shape.',
     finishedTooltip: '',
     polyline: {},
-    initialPath: null,
   },
 
   initialize: function(options) {
@@ -18,11 +17,6 @@ L.LassoSelect = L.Evented.extend({
     this.map.on('click', this.onMapClick, this);
     this.disable();
     this.fire('create');
-    if (this.options.initialPath) {
-      for (var i = 0; i < this.options.initialPath.length; i++) {
-        this.addPointToPath(this.options.initialPath[i]);
-      }
-    }
     return this;
   },
 
@@ -193,6 +187,17 @@ L.LassoSelect = L.Evented.extend({
 
     // trigger path change event
     this.fire('pathchange');
+  },
+
+  setPath: function(path) {
+    for (let i = 0; i < path.length - 1; i++) {
+      this.addPointToPath(path[i]);
+    }
+    if (path[0].lat === path[path.length - 1].lat && path[0].lng === path[path.length - 1].lng) {
+      this.polyline.addLatLng(path[path.length - 1]);
+      this.isFinished = true;
+    }
+    this.setMapTooltip();
   },
 
 });
