@@ -190,7 +190,7 @@ L.LassoSelect = L.Evented.extend({
   },
 
   setPath: function(path) {
-    for (let i = 0; i < path.length - 1; i++) {
+    for (var i = 0; i < path.length - 1; i++) {
       this.addPointToPath(path[i]);
     }
     if (path[0].lat === path[path.length - 1].lat && path[0].lng === path[path.length - 1].lng) {
