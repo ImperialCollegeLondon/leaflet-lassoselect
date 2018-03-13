@@ -1,6 +1,6 @@
 {
   "name": "leaflet-lassoselect",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A lasso selection plug-in for Leaflet.js maps",
   "main": "index.js",
   "scripts": {
